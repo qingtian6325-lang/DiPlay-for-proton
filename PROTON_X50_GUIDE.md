@@ -1,5 +1,7 @@
 # Proton X50 原生 Apple CarPlay 完整安装与适配指南 (DiPlay Android 5.1 移植版)
 
+[English (英文版)](PROTON_X50_GUIDE.en.md) · [简体中文 (中文版)](PROTON_X50_GUIDE.md)
+
 本项目为 **Proton X50 (宝腾 X50)** 车机定制的免盒子原生 Apple CarPlay 接收方案。  
 基于开源项目 [DiPlay](https://github.com/shihabal3amri/DiPlay) 进行深度逆向分析与向下移植，成功实现 **Android 5.1.1 (API 22) / ECARX E01 车机芯片** 完美运行，支持 **有线 (USB NCM/OTG)** 与 **无线 (Wi-Fi/热点)** 连接，无需购买任何外置 CarPlay 盒子（如 Carlinkit、Autokit 等）。
 
