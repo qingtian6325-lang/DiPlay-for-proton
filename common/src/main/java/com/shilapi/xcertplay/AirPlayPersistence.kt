@@ -129,9 +129,9 @@ object AirPlayPersistence {
     private const val SAFE_AREA_KEY_PREFIX = "safe_area_"
     private const val CUSTOM_ICON_FILE = "airplay-icon.png"
 
-    const val DEFAULT_MANUFACTURER = "DiPlay"
-    const val DEFAULT_MODEL = "DiPlay"
-    const val DEFAULT_OEM_LABEL = "BYD"
+    const val DEFAULT_MANUFACTURER = "Proton"
+    const val DEFAULT_MODEL = "X50"
+    const val DEFAULT_OEM_LABEL = "Proton"
     const val DEFAULT_MFI_I2C_PATH = "/dev/i2c-1"
 
     fun loadAmbientDelaySeconds(context: Context): Int =
@@ -562,7 +562,7 @@ object AirPlayPersistence {
     fun loadManufacturer(context: Context): String =
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             .getString(KEY_MANUFACTURER, null)
-            ?.takeIf { it.isNotBlank() }
+            ?.takeIf { it.isNotBlank() && !it.equals("BYD", ignoreCase = true) }
             ?: DEFAULT_MANUFACTURER
 
     fun saveManufacturer(context: Context, manufacturer: String) {
@@ -583,11 +583,13 @@ object AirPlayPersistence {
             .apply()
     }
 
-    fun loadOemLabel(context: Context): String =
-        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    fun loadOemLabel(context: Context): String {
+        val label = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             .getString(KEY_OEM_LABEL, DEFAULT_OEM_LABEL)
             // iOS hides the car icon without a label.
             .orEmpty().ifBlank { DEFAULT_OEM_LABEL }
+        return if (label.equals("BYD", ignoreCase = true)) DEFAULT_OEM_LABEL else label
+    }
 
     fun saveOemLabel(context: Context, oemLabel: String) {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()

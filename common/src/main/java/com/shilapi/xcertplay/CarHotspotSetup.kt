@@ -21,8 +21,8 @@ internal object CarHotspotSetup {
         HOTSPOT("WRITE_SETTINGS"), BOOT_LAUNCH("SYSTEM_ALERT_WINDOW");
 
         fun granted(context: Context): Boolean = when (this) {
-            HOTSPOT -> Settings.System.canWrite(context)
-            BOOT_LAUNCH -> Settings.canDrawOverlays(context)
+            HOTSPOT -> if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) Settings.System.canWrite(context) else true
+            BOOT_LAUNCH -> if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) Settings.canDrawOverlays(context) else true
         }
     }
 

@@ -1,12 +1,14 @@
-# DiPlay
+# DiPlay for Proton (Proton X50 Edition)
 
-[English](README.md) · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-TW.md)
+[English](README.md) · [简体中文 (Proton X50 教程)](PROTON_X50_GUIDE.md)
 
-**CarPlay for compatible BYD Android head units.** Wired and wireless, with the familiar DiAuto interface. Independent app: `com.shihab.diplay`.
+**Independent Apple CarPlay receiver for Proton X50 (ECARX E01 / Android 5.1.1 Lollipop) and Android head units.**  
+Supports both wired (USB OTG/NCM) and wireless (Wi-Fi/Hotspot) CarPlay without any external dongle (no Carlinkit/Autokit required).
 
-> **BYD support scope:** These projects focus on BYD cars. They may work on other brands, but other brands are unsupported and there are no plans to add support or fix brand-specific incompatibilities.
-
-[Download & website](https://shihabal3amri.github.io/DiPlay/) · [Release](https://github.com/shihabal3amri/DiPlay/releases/tag/v0.2.20) · [Report a problem](https://github.com/shihabal3amri/DiPlay/issues/new/choose)
+> 🚗 **Proton X50 Special Edition:**
+> - **Native Android 5.1 (API 21/22) support**: Full downward compatibility port for ECARX E01 SoC.
+> - **Proton OEM Integration in CarPlay**: Inside Apple CarPlay, the OEM exit icon is branded with **Proton** and the official **Proton roaring tiger emblem**, allowing one-tap return to the vehicle head unit.
+> - **Step-by-Step Installation Guide**: See [Proton X50 原生 Apple CarPlay 完整安装与适配指南](PROTON_X50_GUIDE.md) for firmware downgrade, U-disk APK sideloading, and performance optimization.
 
 ![DiPlay home](site/assets/home.png)
 

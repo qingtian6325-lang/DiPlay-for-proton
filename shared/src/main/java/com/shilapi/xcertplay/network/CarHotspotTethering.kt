@@ -24,7 +24,8 @@ object CarHotspotTethering {
         CANCELLED("Hotspot startup was cancelled"),
     }
 
-    fun permitted(context: Context): Boolean = Settings.System.canWrite(context)
+    fun permitted(context: Context): Boolean =
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) Settings.System.canWrite(context) else true
 
     /** Whether this Android version lets an app with [permitted] access start tethering itself, without ADB. */
     fun appStartSupported(): Boolean = PlatformTetheringStart.supported()

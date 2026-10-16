@@ -16,3 +16,7 @@ fun LocationManager.isLocationEnabledCompat(): Boolean =
     } else {
         isProviderEnabled(LocationManager.GPS_PROVIDER) || isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
+
+fun <T> android.content.Context.getSystemServiceCompat(serviceClass: Class<T>): T? =
+    androidx.core.content.ContextCompat.getSystemService(this, serviceClass)
+

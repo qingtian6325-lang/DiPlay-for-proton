@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-sdk tools:overrideLibrary="androidx.compose.animation, androidx.compose.animation.core, androidx.compose.foundation, androidx.compose.foundation.layout, androidx.compose.material, androidx.compose.material.ripple, androidx.compose.material3, androidx.compose.runtime, androidx.compose.runtime.annotation, androidx.compose.runtime.retain, androidx.compose.runtime.saveable, androidx.compose.ui, androidx.compose.ui.geometry, androidx.compose.ui.graphics, androidx.compose.ui.text, androidx.compose.ui.tooling, androidx.compose.ui.tooling.data, androidx.compose.ui.tooling.preview, androidx.compose.ui.unit, androidx.compose.ui.util, androidx.core, androidx.core.ktx, androidx.media3.common, androidx.media3.container, androidx.media3.database, androidx.media3.datasource, androidx.media3.decoder, androidx.media3.exoplayer, androidx.media3.exoplayer.hls, androidx.media3.extractor, androidx.media3.ui, androidx.window, androidx.window.core, androidx.work, androidx.work.impl" />
+
     <application
         android:allowBackup="false"
         android:fullBackupContent="@xml/backup_rules"
