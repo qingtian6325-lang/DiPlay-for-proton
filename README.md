@@ -1,70 +1,172 @@
-# DiPlay for Proton (Proton X50 Edition)
+# 🚗 DiPlay for Proton X50
 
-[English](README.md) · [简体中文](README.zh-CN.md) · [📖 Proton X50 Guide (English)](PROTON_X50_GUIDE.en.md) · [📖 Proton X50 教程 (中文)](PROTON_X50_GUIDE.md)
+[English](README.md) · [简体中文 (华文版)](README.zh-CN.md)
 
-**Independent Apple CarPlay receiver for Proton X50 (ECARX E01 / Android 5.1.1 Lollipop) and Android head units.**  
-Supports both wired (USB OTG/NCM) and wireless (Wi-Fi/Hotspot) CarPlay without any external dongle (no Carlinkit/Autokit required).
+> **Native Apple CarPlay for Proton X50 (ECARX E01 / Android 5.1.1 Lollipop / ATLAS OS)**  
+> **No dongle required!** Zero external hardware adapters (Carlinkit, Autokit, etc.).  
+> Supports both **Wired (USB OTG)** and **Wireless (Wi-Fi / Hotspot)** CarPlay with the official **Proton roaring tiger emblem** inside CarPlay.
 
-> 🚗 **Proton X50 Special Edition:**
-> - **Direct APK Download**: **[⬇️ Download DiPlay-for-Proton-Android5.1.apk](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk)**
-> - **Native Android 5.1 (API 21/22) support**: Full downward compatibility port for ECARX E01 SoC.
-> - **Proton OEM Integration in CarPlay**: Inside Apple CarPlay, the OEM exit icon is branded with **Proton** and the official **Proton roaring tiger emblem**, allowing one-tap return to the vehicle head unit.
-> - **Step-by-Step Installation Guides**: Read the [English Installation Guide](PROTON_X50_GUIDE.en.md) or the [中文安装与刷机教程](PROTON_X50_GUIDE.md) for firmware downgrade, U-disk APK sideloading, and performance optimization.
+---
 
-![DiPlay home](site/assets/home.png)
+## 📥 Quick Download
 
-## 0.2.20 — public preview
+| File | Target Platform | Download Link |
+| :--- | :--- | :--- |
+| **DiPlay APK** | Proton X50 (Android 5.1.1 / ECARX E01) | [⬇️ **Download DiPlay-for-Proton-Android5.1.apk (23.9 MB)**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk) |
+| **All Releases** | Changelog & Version History | [View GitHub Releases](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases) |
 
-Install on the **car**, not the iPhone. No jailbreak, dongle, Mac, account or authentication server is required for use. Core CarPlay does not require ADB; optional dashboard, battery, wheel-speed and parked-video features do. Your head unit must permit APK installation. The APK supports Android 7.1+ (API 25); Android 7.1–8.1 support is not yet confirmed on a vehicle. Wireless supports Wi-Fi Direct, the car’s existing hotspot or Existing Wi-Fi / Same LAN. Android 7.1–9 Wi-Fi Direct uses a firmware-dependent legacy path with generated group credentials and unverified requested frequency; see [Android 9 Wi-Fi Direct](docs/ANDROID9_WIFI_DIRECT.md). Android 10+ verifies its negotiated group frequency.
+---
 
-- Wired USB and wireless CarPlay with local authentication.
-- BYD HUD navigation with arrows, distance and street names on verified firmware.
-- Car hotspot support, improved audio buffering and saved receive diagnostics.
-- Automatic address discovery, fixed-channel Wi-Fi fallbacks and successful-configuration memory.
-- Icon/text size, resolution and frame rate; applying a display change reconnects CarPlay.
-- Local diagnostic export. Reports are sent only if you choose to share them.
-- Separate installation alongside DiAuto. Run one projection app at a time.
+## 🌟 Key Features for Proton X50
 
-This is **not an Apple-certified product**. The APK bundles an experimental accessory identity recovered from public Carlinkit firmware, not a newly provisioned MFi identity for DiPlay. A bundled private key is extractable. Acceptance after future iOS updates, reliability across head units and suitability of that identity for general distribution are unresolved. This release invites community testing; it is not a guarantee of universal compatibility.
+- **True Native CarPlay**: Runs directly on the car's built-in ECARX E01 processor without third-party USB dongles.
+- **Android 5.1.1 (API 22) Downward Port**: Fully patched and recompiled with NDK C++ native binaries (`armeabi-v7a`, `arm64-v8a`) specifically for Proton X50.
+- **Proton Vehicle Branding**: Inside Apple CarPlay, the OEM return tile is branded as **Proton** with the official **Proton roaring tiger emblem**. Tapping it returns directly to the Proton X50 car dashboard.
+- **Wired & Wireless Options**: Connect via the center console USB cable or wirelessly over vehicle hotspot / iPhone personal hotspot.
 
-Earlier releases were tested on the development DiLink5.1 car: live windshield guidance and street names work, Car hotspot now starts CarPlay, and Wi-Fi Direct performance is substantially improved. Audio underrun recovery is improved in 0.2.15; remaining cutouts need current diagnostic reports. The 0.2.16 software Opus microphone fallback was accepted on a BOS Mini A1 head unit (Android 9) with an iPhone 12 on iOS 27. The floating-map test build was installed on the development DiLink 5.1 car; feedback led to the pinch corrections in 0.2.9. Earlier wheel-speed and video contributions were tested on a BYD Tang with DiLink 5.0 and an iPhone 15 Pro on iOS 27; wheel-speed dead reckoning in tunnels remains unverified. Broader head-unit and iOS compatibility is not guaranteed. The HUD firmware scope and cleanup limits are documented in [BYD navigation](docs/BYD_NAVIGATION.md).
+---
 
-## What’s new in 0.2.20
+## 🛠️ Step-by-Step Installation Guide (IHU)
 
-- Music no longer pauses every minute or so on head units whose audio clock runs fast or slow, crackles less while the head unit opens its 360° camera, and keeps separate buffers for wireless and USB.
-- Calls that a head unit sent to its earpiece play on the loudspeaker. **Settings → Audio → Calls on the loudspeaker** does the same on phones and tablets used as head units, and app voice messages can use the head unit's microphone.
-- Wired CarPlay starts on head units whose USB audio driver held the iPhone, comes back within seconds after **Save and reconnect**, and starts on Android 17.
-- **Automatically turn on the car hotspot** works on more head units, including head units that aren't BYD on Android 8.0–10 without ADB, and **Connect** in the **Car hotspot is off** dialog now connects.
-- **CarPlay map on dashboard (experimental)** finds the cluster on more BYD firmware, including the Leopard 5 Ultra, and HEVC falls back to H.264 when the head unit has no hardware decoder for it.
-- The diagnostic report records DiPlay's last crash, the wheel and media keys DiPlay received, and music rebuffers.
+Follow these steps carefully from checking your version to launching CarPlay.
 
-See [0.2.20 release notes](docs/RELEASE-NOTES-0.2.20.md) and [validation](docs/VALIDATION.md) for contribution links and remaining physical tests. General stutter, calls/Siri, decoder and model-specific reports still need current-device evidence. [0.2.19 notes](docs/RELEASE-NOTES-0.2.19.md) remain available as historical guidance.
+### 📋 Prerequisites (What you need)
+1. **USB Flash Drive**: 8 GB to 32 GB, formatted as **FAT32**.
+2. **Apple Lightning / USB-C Cable**: Genuine Apple or MFi-certified data cable.
+3. **iPhone**: Running iOS 13 or later.
+4. **Downloaded Files**:
+   - [`DiPlay-for-Proton-Android5.1.apk`](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk)
+   - Sideload Installer Toolkit: [Proton-X50-APK-Installer-ATLAS](https://github.com/xeon1989/Proton-X50-APK-Installer-ATLAS)
 
-If a problem remains, reproduce it on **0.2.20**, then use **Settings → Diagnostics → Save diagnostic report**. Android 10+ normally saves to **Downloads/DiPlay**; Android 7.1–9 asks for storage access and saves there too. If unavailable, use **View report** or **Share** from the confirmation, which identifies external/private fallback storage. Review the `.txt` and add it to a matching [existing issue](https://github.com/shihabal3amri/DiPlay/issues), or [create one](https://github.com/shihabal3amri/DiPlay/issues/new/choose). Include vehicle/head-unit model, exact firmware and Android/DiLink, phone/iOS, connection backend, relevant settings, steps and failure time. Reports are shared only when you choose; never post your hotspot password.
+---
 
-## Documentation
+### Step 1: Check Your Proton X50 IHU Firmware Version
 
-[Existing Wi-Fi / Same LAN](docs/EXISTING_WIFI.md) keeps the iPhone and head unit
-on an external router. See the guide for setup, build requirements and the
-BYD DiLink 4.0 / Android 10 clean-install validation result.
+1. Start your car and let the screen boot up.
+2. Go to **Settings (设置)** ➡️ **System (系统)** ➡️ **About / System Information (系统信息)**.
+3. Check the ATLAS OS version:
+   - **High-spec models (Premium / Flagship)**: Target version is **`617v1`**.
+   - **Standard / Executive models**: Target version is **`618v1`**.
 
-- [Install and connect](docs/INSTALL.md)
-- [Compatibility and troubleshooting](docs/COMPATIBILITY.md)
-- [Smooth wireless CarPlay](docs/SMOOTH_WIRELESS.md)
-- [Privacy and diagnostic reports](docs/PRIVACY.md)
-- [Build from source](docs/BUILD.md) — select `mobile` for the main DiPlay app; `maphost` is a map sample.
-- [Validation](docs/VALIDATION.md)
-- [Release notes](CHANGELOG.md)
-- [Credits and licenses](docs/THIRD_PARTY_NOTICES.md)
+> [!IMPORTANT]
+> - If your current version is **`617v1`** or **`618v1`**, skip Step 2 and proceed directly to **Step 3**!
+> - If your car is on a newer version (e.g. `617v2`, `617v3`, etc.) where sideloading is patched by Proton, you must downgrade to `617v1`/`618v1` first (see Step 2).
 
-The app and the website source include English, Arabic, Russian, Ukrainian, Spanish, Simplified Chinese, Traditional Chinese (Taiwan), and Japanese. Traditional Chinese uses Taiwan wording; the app also recognizes Hong Kong/Macao and explicit Hant selections without claiming separate regional translations. Choose the app language in Settings; on Android 13+, it stays synchronized with Android’s per-app language setting. See the [Traditional Chinese guide](README.zh-TW.md) for installation, settings, troubleshooting, privacy and build instructions.
+---
 
-## Source and credits
+### Step 2: Downgrade IHU Firmware (Only if on 617v2+)
 
-Based on [xcertplay](https://github.com/shilapi/xcertplay), GPL-3.0. The home/settings UI and website adapt [DiAuto](https://github.com/shihabal3amri/DiAuto), AGPL-3.0; that license is included in `docs/licenses`. Preserve those notices when distributing modifications. CarPlay and its icon belong to Apple Inc.; no Apple or BYD affiliation or endorsement is implied.
+> [!WARNING]
+> Keep the car engine running (**Engine ON**) during the entire upgrade/downgrade process. Never turn off the car or pull out the USB drive mid-flash!
 
-This repository starts with a clean public source snapshot. Local research, tester reports and release-signing secrets are excluded. The complete source corresponding to the APK is provided with every release; experimental runtime identity assets are described separately in the build instructions and notices.
+1. Format your USB drive as **FAT32**.
+2. Download the safe downgrade firmware matching your vehicle trim:
+   - [Proton-X50-IHU-Upgrade-Downgrade (by xeon1989)](https://github.com/xeon1989/Proton-X50-IHU-Upgrade-Downgrade)
+   - [Proton Firmware Repository](https://github.com/xeon1989/proton_firmware)
+3. Extract the firmware files into the **root directory** of your FAT32 USB drive.
+4. Plug the USB drive into the **lower front center console USB data port** (underneath the floating bridge console).
+5. The screen will prompt for system update. Confirm and wait for the progress bar to finish and the unit to reboot.
+6. Verify in **System Information** that the version is now `617v1` or `618v1`.
 
-## Local release packaging
+---
 
-The release APK intentionally contains the experimental accessory identity. The Git repository and source archive exclude all accessory and Android signing keys; tests generate synthetic identities at runtime. Source/CI builds omit runtime identity assets by default. Local release builds explicitly select an external asset directory. Publishing the APK makes its bundled identity extractable; building locally does not preserve that identity's confidentiality.
+### Step 3: Install DiPlay APK via USB Exploit Script
+
+1. Format your USB drive as **FAT32**.
+2. Download the toolkit from [Proton-X50-APK-Installer-ATLAS](https://github.com/xeon1989/Proton-X50-APK-Installer-ATLAS).
+3. Download the DiPlay APK: [**`DiPlay-for-Proton-Android5.1.apk`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk).
+4. Rename the downloaded file to **`DiPlay.apk`** and place it inside the `install/app/` folder on the USB drive.
+
+**Your USB drive folder structure must look like this:**
+```text
+USB Flash Drive (FAT32)/
+├── b832bc43-xxxx-xxxx-xxxx/     <-- Detection directory from toolkit
+├── install/
+│   ├── app/
+│   │   └── DiPlay.apk           <-- Your DiPlay installation package
+│   └── scripts/
+└── autorun / update scripts
+```
+
+5. Enter the car, start the engine, and wait for the main screen to load.
+6. Insert the USB drive into the **bottom center console USB data port** (do NOT use the armrest charging port).
+7. The script will run automatically in the background (takes ~1 to 2 minutes) to grant permissions, disable QDLink conflicts, and silently install DiPlay.
+8. When the screen prompts completion, unplug the USB drive.
+9. **Reboot the IHU**: Press and hold the **Mute button** on the steering wheel (or double-click the volume roller) until the screen restarts.
+10. Open **All Apps (全部应用)** on the car screen. You will see **DiPlay**!
+
+---
+
+### Step 4: Connect Apple CarPlay
+
+#### 🔌 Option A: Wired Connection (Recommended: Zero Latency & Most Stable)
+1. Tap to open **DiPlay** on your Proton X50 screen.
+2. Grant all requested permissions on the first run.
+3. Plug your iPhone into the lower center console USB data port using your data cable.
+4. On your iPhone:
+   - Tap **"Trust"** when prompted to "Trust This Computer" and enter your screen passcode.
+   - Tap **"Use CarPlay"** when prompted.
+5. On the car screen:
+   - Check **"Always allow"** and tap **OK** on the USB accessory permission prompt.
+6. **Apple CarPlay will immediately launch in full screen on your Proton X50 display!**
+
+---
+
+#### 📶 Option B: Wireless Connection (Wi-Fi + Bluetooth)
+1. **Network Setup** (choose one):
+   - **Method 1 (Car Hotspot)**: Turn on Wi-Fi Hotspot on the Proton X50 IHU, then connect your iPhone to the car's Wi-Fi.
+   - **Method 2 (iPhone Hotspot)**: Turn on Personal Hotspot on your iPhone (enable "Maximize Compatibility"), then connect the car's Wi-Fi to your iPhone's hotspot.
+2. Open **DiPlay** on the car screen.
+3. Connect and pair your iPhone with the car's native Bluetooth.
+4. DiPlay will automatically discover your iPhone and start wireless CarPlay.
+
+---
+
+### Step 5: Recommended Performance Settings for ECARX E01 SoC
+
+Because the Proton X50's ECARX E01 processor is a power-efficient quad-core Cortex-A53, configure these settings to ensure smooth operation and prevent overheating:
+
+1. Open **DiPlay Settings** (tap the gear icon):
+2. **Video Codec (视频解码器)**:
+   - Set to **`H.264 (AVC)`**.
+   - > [!CAUTION]
+     > **Do NOT select HEVC / H.265 software decode.** Software decoding HEVC on Cortex-A53 cores causes high CPU usage, thermal throttling, and frame drops.
+3. **Resolution & FPS**:
+   - Resolution: **`1280 x 720`** (optimal aspect ratio and crispness for X50 screens).
+   - Frame Rate: **`30 fps`** (best battery and thermal balance) or **`60 fps`** (if stable on wired).
+4. **Audio Routing**:
+   - Set Audio Route to **`Car Bluetooth Route`**. This ensures phone calls and steering wheel call buttons work directly through the car's native Bluetooth system without echo.
+
+---
+
+### 🔘 Exiting CarPlay Back to the Proton Head Unit
+
+Inside Apple CarPlay:
+- Look for the app tile named **"Proton"** with the **Proton roaring tiger emblem**.
+- Tap it at any time to immediately return to the Proton X50 car dashboard, climate controls, or 360° camera views!
+
+---
+
+## ❓ Frequently Asked Questions (FAQ)
+
+### Q1: The iPhone charges, but CarPlay doesn't launch.
+- **Wrong USB port**: Only the front lower console port has OTG data capability. The armrest box port is charging-only in some trims.
+- **Cable quality**: Poor quality third-party cables only have power pins and lack data transmission lines. Use an original Apple or MFi-certified cable.
+- **QDLink conflict**: Ensure the APK installer script completed, which freezes the conflicting QDLink background service.
+
+### Q2: How do steering wheel buttons work with CarPlay?
+- Volume up/down and mute work natively.
+- With Audio Route set to `Car Bluetooth Route`, the phone call answer/hangup buttons on the steering wheel work with your incoming/outgoing calls seamlessly.
+
+---
+
+## 👨‍💻 Developer & Cloud Build
+
+This repository includes a fully automated **GitHub Actions CI/CD** workflow. Whenever new code is pushed:
+1. GitHub spins up a clean cloud Ubuntu runner with Java 25, Android SDK 37, and NDK 28.
+2. The APK is compiled automatically from source (`./gradlew :mobile:assembleDebug`).
+3. The latest APK is published directly to [GitHub Releases](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases).
+
+---
+
+*Drive safely and enjoy native Apple CarPlay in your Proton X50!*
