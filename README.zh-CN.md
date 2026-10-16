@@ -170,4 +170,21 @@ U盘根目录 (FAT32)/
 
 ---
 
+## 🙏 致谢与开源项目致敬 (Credits & Acknowledgements)
+
+本项目得以成功在宝腾 Proton X50 上实现原生免盒子 CarPlay，特别致敬并感谢以下开源项目与开发者的卓越贡献：
+
+- **[DiPlay](https://github.com/shihabal3amri/DiPlay)** (开发者：[@shihabal3amri](https://github.com/shihabal3amri)) — 面向安卓车机的独立 CarPlay 接收端实现。
+- **[xcertplay](https://github.com/Frank-Zsy/xcertplay)** (开发者：[@Frank-Zsy](https://github.com/Frank-Zsy)) — CarPlay 核心通信协议与 AirPlay 视频接收引擎。
+- **[Proton-X50-APK-Installer-ATLAS](https://github.com/xeon1989/Proton-X50-APK-Installer-ATLAS)** (开发者：[@xeon1989](https://github.com/xeon1989)) — 宝腾 Proton X50 ATLAS 系统 U盘自动化提权与静默安装工具包。
+- **[Proton-X50-IHU-Upgrade-Downgrade](https://github.com/xeon1989/Proton-X50-IHU-Upgrade-Downgrade)** (开发者：[@xeon1989](https://github.com/xeon1989)) — 宝腾 Proton X50 车机固件升级与降级恢复工具包。
+- **[proton_firmware](https://github.com/xeon1989/proton_firmware)** (开发者：[@xeon1989](https://github.com/xeon1989)) — 宝腾车机各版本官方固件库。
+
+---
+
+### ⚖️ 免责声明 (Disclaimer)
+Apple 与 CarPlay 均为 Apple Inc. 之注册商标。Proton（宝腾）为 Perusahaan Otomobil Nasional Sdn Bhd 之注册商标。本项目为社区开源爱好者独立逆向与适配成果，与 Apple Inc. 及 Proton 汽车官方无任何隶属、认可或商业关联。
+
+---
+
 *祝所有宝腾 Proton X50 车主用车愉快！安全驾驶！*

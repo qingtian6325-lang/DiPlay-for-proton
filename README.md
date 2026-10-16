@@ -169,4 +169,21 @@ This repository includes a fully automated **GitHub Actions CI/CD** workflow. Wh
 
 ---
 
+## 🙏 Acknowledgements & Credits
+
+Special thanks to the following open-source projects and developers who made native CarPlay on the Proton X50 possible:
+
+- **[DiPlay](https://github.com/shihabal3amri/DiPlay)** by [@shihabal3amri](https://github.com/shihabal3amri) — Independent CarPlay receiver implementation for Android head units.
+- **[xcertplay](https://github.com/Frank-Zsy/xcertplay)** by [@Frank-Zsy](https://github.com/Frank-Zsy) — Core CarPlay protocol and AirPlay receiver engine.
+- **[Proton-X50-APK-Installer-ATLAS](https://github.com/xeon1989/Proton-X50-APK-Installer-ATLAS)** by [@xeon1989](https://github.com/xeon1989) — Sideloading exploit script and installer for Proton X50 ATLAS OS.
+- **[Proton-X50-IHU-Upgrade-Downgrade](https://github.com/xeon1989/Proton-X50-IHU-Upgrade-Downgrade)** by [@xeon1989](https://github.com/xeon1989) — IHU firmware upgrade & downgrade toolkit for Proton X50.
+- **[proton_firmware](https://github.com/xeon1989/proton_firmware)** by [@xeon1989](https://github.com/xeon1989) — Repository of Proton X50 IHU firmware images.
+
+---
+
+### ⚖️ Disclaimer
+Apple and CarPlay are registered trademarks of Apple Inc. Proton is a registered trademark of Perusahaan Otomobil Nasional Sdn Bhd. This project is an independent community modification and is not officially affiliated with, endorsed by, or supported by Apple Inc. or Proton Holdings Berhad.
+
+---
+
 *Drive safely and enjoy native Apple CarPlay in your Proton X50!*
