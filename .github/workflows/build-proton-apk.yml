@@ -1,0 +1,65 @@
+name: Auto Build Proton APK
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build DiPlay for Proton (Android 5.1)
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK & NDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools platforms;android-37 build-tools;36.0.0 ndk;28.2.13676358
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build Debug APK
+        run: ./gradlew :mobile:assembleDebug --stacktrace
+
+      - name: Prepare APK Output
+        run: |
+          mkdir -p dist
+          cp mobile/build/outputs/apk/debug/mobile-debug.apk dist/DiPlay-for-Proton-Android5.1.apk
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DiPlay-for-Proton-Android5.1
+          path: dist/DiPlay-for-Proton-Android5.1.apk
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/DiPlay-for-Proton-Android5.1.apk
+          name: ${{ github.ref_name }}
+          body: |
+            ## DiPlay for Proton X50 (Android 5.1 / ECARX E01)
+            
+            - **Target Vehicle**: Proton X50 (Standard, Executive, Premium, Flagship)
+            - **System**: Android 5.1.1 (API 22) / ECARX E01 SoC
+            - **CarPlay OEM Button**: Branded as **Proton** with the official roaring tiger logo.
+            - **Installation Guide**: See [PROTON_X50_GUIDE.md](PROTON_X50_GUIDE.md)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
