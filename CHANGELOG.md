@@ -1,3 +1,26 @@
+# DiPlay for Proton 0.2.20-proton.1 — 2026-10-16
+
+### Proton X50 (ECARX E01 / Android 5.1.1 Lollipop) Adaptation
+- **Downward SDK Compatibility**:
+  - Lowered `minSdk` across all modules (`:shared`, `:common`, `:mobile`) from 28 (Android 9) to 21 (Android 5.0 / 5.1).
+  - Rebuilt native C++ NDK binaries targeting `APP_PLATFORM := android-21` across `armeabi-v7a`, `arm64-v8a`, `x86`, and `x86_64`.
+  - Enabled `multiDexEnabled = true` for legacy Dalvik/early ART environments.
+  - Added `tools:overrideLibrary` for Compose Material, Compose Animation, Ripple, Media3, and WorkManager to safely override API 23 minimum requirements during manifest merging.
+- **Android 5.1 Runtime API Guards**:
+  - Guarded `PendingIntent.FLAG_IMMUTABLE` in `DiPlaySessionService.kt`, `IphoneUsbHost.kt`, and `Ch341UsbHost.kt` with `Build.VERSION.SDK_INT >= Build.VERSION_CODES.M` checks (fallback to 0).
+  - Guarded `Settings.canDrawOverlays` (overlay permission check) in `CenterMapOverlay.kt`, `CarHotspotSetup.kt`, and `UsbPermissionSetup.kt` with API 23+ checks.
+  - Guarded `Settings.System.canWrite` in `CarHotspotTethering.kt` with API 23+ checks.
+  - Implemented `Context.getSystemServiceCompat` for backward-compatible system service retrieval (`UsbManager`, `BluetoothManager`).
+- **Proton Vehicle & CarPlay OEM Branding**:
+  - Branded OEM return button inside Apple CarPlay: `DEFAULT_OEM_LABEL` updated to `"Proton"`.
+  - Added automatic upgrade logic in `AirPlayPersistence.kt` to migrate any legacy `"BYD"` values to `"Proton"`.
+  - Set `DEFAULT_MANUFACTURER` to `"Proton"` and `DEFAULT_MODEL` to `"X50"`.
+  - Replaced OEM CarPlay return icon `ic_car_home.png` (192x192 RGB) and `placeholder_icon.png` (1024x1024 RGB) with official-style Proton roaring tiger badge.
+  - Replaced app launcher icon `ic_carplay.png` with Proton roaring tiger emblem.
+- **GitHub-based Automation & User Guide**:
+  - Added `.github/workflows/build-proton-apk.yml` for automated GitHub Actions CI building and release creation.
+  - Added `PROTON_X50_GUIDE.md`: Comprehensive end-to-end installation and flashing guide for Proton X50 owners (checking ATLAS OS version, downgrade instructions for 617v1/618v1, U-disk APK installer injection, wired USB and wireless CarPlay walkthrough, and E01 SoC performance tuning).
+
 # DiPlay 0.2.20 — 2026-10-15
 
 - Keep music playing when a head unit's audio clock drifts by adjusting its playback rate, run DiPlay's audio threads at audio priority, and keep separate music buffers for wireless and USB (#788, #740, #746).
