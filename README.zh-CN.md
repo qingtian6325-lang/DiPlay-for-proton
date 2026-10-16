@@ -6,6 +6,7 @@
 支持有线（USB NCM/OTG）与无线（车机热点/Wi-Fi）直连，无需购买任何外置 CarPlay 转接盒子。
 
 > 🚗 **Proton X50 专属特性：**
+> - **安装包直接下载**：**[⬇️ 点击直接下载 DiPlay-for-Proton-Android5.1.apk](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk)**
 > - **全面支持 Android 5.1 (API 21/22)**：突破原版仅支持 Android 9+ 的限制，对 ECARX E01 四核 A53 架构深度优化。
 > - **CarPlay 原生车标集成**：在 Apple CarPlay 界面中，返回车机的快捷图标深度定制为 **Proton** 标识及**宝腾咆哮虎头立体车标**，一键切回原车控制。
 > - **完整刷机与破解教程**：详细步骤请阅读 [Proton X50 完整安装与刷机教程 (中文)](PROTON_X50_GUIDE.md) 或 [English Guide](PROTON_X50_GUIDE.en.md)。

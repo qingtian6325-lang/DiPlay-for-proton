@@ -6,6 +6,7 @@
 Supports both wired (USB OTG/NCM) and wireless (Wi-Fi/Hotspot) CarPlay without any external dongle (no Carlinkit/Autokit required).
 
 > 🚗 **Proton X50 Special Edition:**
+> - **Direct APK Download**: **[⬇️ Download DiPlay-for-Proton-Android5.1.apk](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk)**
 > - **Native Android 5.1 (API 21/22) support**: Full downward compatibility port for ECARX E01 SoC.
 > - **Proton OEM Integration in CarPlay**: Inside Apple CarPlay, the OEM exit icon is branded with **Proton** and the official **Proton roaring tiger emblem**, allowing one-tap return to the vehicle head unit.
 > - **Step-by-Step Installation Guides**: Read the [English Installation Guide](PROTON_X50_GUIDE.en.md) or the [中文安装与刷机教程](PROTON_X50_GUIDE.md) for firmware downgrade, U-disk APK sideloading, and performance optimization.
