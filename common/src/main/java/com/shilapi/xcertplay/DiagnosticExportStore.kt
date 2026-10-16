@@ -91,7 +91,7 @@ internal object DiagnosticExportStore {
     /** Android 11+ lets any app create files in Downloads; older versions need the permission. */
     fun canWritePublicDownloads(context: Context, sdkInt: Int = Build.VERSION.SDK_INT): Boolean =
         sdkInt >= Build.VERSION_CODES.R ||
-            context.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+            androidx.core.content.ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
 
     /**
      * True only on Android 9, the one version where storage access is what puts the report in

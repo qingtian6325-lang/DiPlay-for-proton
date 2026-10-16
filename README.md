@@ -87,30 +87,27 @@ USB Flash Drive (FAT32)/
     │   ├── com.shihab.diplay.apk
     │   └── lib/
     │       ├── arm/
-    │       │   ├── libandroidx.graphics.path.so
-    │       │   ├── liblocal_hotspot_radio.so
-    │       │   ├── libspeex_echo.so
-    │       │   └── libxcertplay_i2c.so
     │       └── arm64/
-    │           ├── libandroidx.graphics.path.so
-    │           ├── liblocal_hotspot_radio.so
-    │           ├── libspeex_echo.so
-    │           └── libxcertplay_i2c.so
     ├── hutroops.gb.xxy.hr/                  # 🤖 Android Auto (Headunit Reloaded / HUR)
     │   ├── gb.xxy.hr.apk
     │   └── lib/
     │       ├── arm/
     │       └── arm64/
-    └── hutroops.dxidev.openhiddensettings/  # ⚙️ Open Hidden Settings (Android Settings & ADB)
-        ├── dxidev.openhiddensettings.apk
-        └── lib/arm/
+    ├── hutroops.dxidev.openhiddensettings/  # ⚙️ Open Hidden Settings (Android Settings & ADB)
+    │   ├── dxidev.openhiddensettings.apk
+    │   └── lib/arm/
+    └── hutroops.com.amaze.filemanager/      # 📁 Amaze File Manager (Explorer & Log Viewer)
+        ├── com.amaze.filemanager.apk
+        └── lib/
+            ├── arm/
+            └── arm64/
 ```
 
 4. Enter the car, start the engine (**Engine ON**), and wait for the main screen to load.
 5. Insert the USB drive into the **bottom center console USB data port** (under the gear shifter area; do NOT use the armrest charging port).
 6. **Automatic Sideloading Execution**:
    - The screen will momentarily jump to **Wireless Charging Settings** (indicates the script has successfully started).
-   - The script automatically mounts `/system`, installs all 3 apps into `/system/app/`, configures native library permissions, and disables conflicting background processes.
+   - The script automatically mounts `/system`, installs all 4 apps into `/system/app/`, configures native library permissions, and disables conflicting background processes.
    - The screen will then jump to **System Settings** (indicates installation has completed!).
    - The IHU will automatically reboot in ~5 seconds.
 7. Unplug your USB drive.
@@ -118,6 +115,7 @@ USB Flash Drive (FAT32)/
    - **DiPlay**: Native Apple CarPlay with Proton tiger emblem.
    - **Headunit Reloaded (HUR)**: Native Android Auto.
    - **Open Hidden Settings**: Stock Android settings and developer options.
+   - **Amaze File Manager**: File explorer to browse files, view logs, and copy files to USB.
 
 ---
 
@@ -170,6 +168,24 @@ Inside Apple CarPlay:
 - Tap it at any time to immediately return to the Proton X50 car dashboard, climate controls, or 360° camera views!
 
 ---
+
+### Step 6: Exporting Logs for Troubleshooting & Debugging
+
+If you encounter any connection issues, unexpected disconnects, or crashes, you can easily export the diagnostic logs:
+
+1. **Option A: Generate Report via DiPlay Settings**:
+   - Open **DiPlay** ➡️ Tap the **Settings (gear icon)**.
+   - Tap **View Diagnostic Report** (or export report).
+   - DiPlay automatically aggregates session logs, connection handshakes, and crash traces into `Downloads/DiPlay/`.
+2. **Option B: Copy Logs to USB using Amaze File Manager**:
+   - Insert any USB flash drive into the car's USB data port.
+   - Open **Amaze File Manager** from All Apps.
+   - Navigate to:
+     - `Internal Storage` ➡️ `Download` ➡️ `DiPlay/` (contains diagnostic reports).
+     - Or `/sdcard/Android/data/com.shihab.diplay/files/logs/` (contains `diplay.log` and `last-crash.txt`).
+   - Long-press the file, tap **Copy**.
+   - Tap the sidebar menu ➡️ Select your **USB Drive** (`udisk1`) ➡️ Tap **Paste**.
+   - Remove the USB drive, plug it into your computer, and share the log files for assistance!
 
 ## ❓ Frequently Asked Questions (FAQ)
 

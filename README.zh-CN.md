@@ -12,7 +12,7 @@
 
 | 项目 | 说明 / 推荐用途 | 下载链接 |
 | :--- | :--- | :--- |
-| **⭐ U盘即插即装三合一完整包** | **【车机安装最推荐】**：解压即用的一体化 U盘安装包！一键同时安装 **DiPlay (Apple CarPlay)**、**Headunit Reloaded (Android Auto)** 与 **Open Hidden Settings (原生隐藏设置)**，内嵌提权脚本与所有必需的原生 `.so` 动态库。直接解压到 FAT32 U盘根目录即可！ | [⬇️ **点击下载 DiPlay-Proton-X50-USB-Installer.zip**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/latest/download/DiPlay-Proton-X50-USB-Installer.zip) |
+| **⭐ U盘即插即装四合一完整包** | **【车机安装最推荐】**：解压即用的一体化 U盘安装包！一键同时安装 **DiPlay (Apple CarPlay)**、**Headunit Reloaded (Android Auto)**、**Open Hidden Settings (原生隐藏设置)** 与 **Amaze File Manager (文件管理器/日志导出)**，内嵌提权脚本与所有必需的原生 `.so` 动态库。直接解压到 FAT32 U盘根目录即可！ | [⬇️ **点击下载 DiPlay-Proton-X50-USB-Installer.zip**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/latest/download/DiPlay-Proton-X50-USB-Installer.zip) |
 | **独立 APK 文件** | 纯 APK 安装包，供开发者或高级用户手动 adb 安装调试。 | [⬇️ **点击下载 DiPlay-for-Proton-Android5.1.apk**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/latest/download/DiPlay-for-Proton-Android5.1.apk) |
 | **所有发布版本** | 更新日志与版本记录 | [查看 GitHub Releases](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases) |
 
@@ -20,7 +20,7 @@
 
 ## 🌟 核心特性与 Proton X50 适配亮点
 
-- **三合一车载互联套件**：U 盘一插一次性搞定 **Apple CarPlay (DiPlay)** + **Android Auto (Headunit Reloaded)** + **Open Hidden Settings (原生安卓设置)**。
+- **四合一车载互联与调试套件**：U 盘一插一次性搞定 **Apple CarPlay (DiPlay)** + **Android Auto (Headunit Reloaded)** + **Open Hidden Settings (原生安卓设置)** + **Amaze File Manager (文件管理与日志提取)**。
 - **真正纯原生免盒子**：直接在宝腾 X50 车机内置的 ECARX E01 处理器上运行，无额外硬件发热与接口松动问题。
 - **向下突破 Android 5.1 (API 22)**：突破开源原版仅支持 Android 9+ 的限制，重新构建 NDK C++ 原生底层（针对 32 位 `armeabi-v7a` 及 64 位深度优化）。
 - **CarPlay 专属 Proton 车标集成**：进入 Apple CarPlay 后，返回原车界面的图标定制为 **Proton** 专属名称与**官方咆哮虎头车标**，点击一秒切回原车中控。
@@ -87,36 +87,34 @@ U盘根目录 (FAT32)/
     │   ├── com.shihab.diplay.apk
     │   └── lib/
     │       ├── arm/
-    │       │   ├── libandroidx.graphics.path.so
-    │       │   ├── liblocal_hotspot_radio.so
-    │       │   ├── libspeex_echo.so
-    │       │   └── libxcertplay_i2c.so
     │       └── arm64/
-    │           ├── libandroidx.graphics.path.so
-    │           ├── liblocal_hotspot_radio.so
-    │           ├── libspeex_echo.so
-    │           └── libxcertplay_i2c.so
     ├── hutroops.gb.xxy.hr/                  # 🤖 Android Auto (Headunit Reloaded / HUR)
     │   ├── gb.xxy.hr.apk
     │   └── lib/
     │       ├── arm/
     │       └── arm64/
-    └── hutroops.dxidev.openhiddensettings/  # ⚙️ Open Hidden Settings (原生安卓设置 & ADB)
-        ├── dxidev.openhiddensettings.apk
-        └── lib/arm/
+    ├── hutroops.dxidev.openhiddensettings/  # ⚙️ Open Hidden Settings (原生安卓设置 & ADB)
+    │   ├── dxidev.openhiddensettings.apk
+    │   └── lib/arm/
+    └── hutroops.com.amaze.filemanager/      # 📁 Amaze File Manager (文件管理器 & 日志导出)
+        ├── com.amaze.filemanager.apk
+        └── lib/
+            ├── arm/
+            └── arm64/
 ```
 
 4. 启动车辆发动机（**Engine ON**），等待车机大屏完全进入主页面。
 5. 将 U 盘插入**前排中控台马鞍底部的 USB 数据接口**（注意：必须插下方的有数据传输标志的口，扶手箱内为纯充电口）。
 6. **自动化静默安装与重启**：
    - 插入后几秒内，屏幕会自动切到 **「无线充电设置界面」**（这代表提权安装脚本已成功识别并开始执行）。
-   - 脚本会自动挂载 `/system` 系统分区，将全部 3 个应用写入系统目录，配置好 Android 5.1 所需的 `.so` 核心运行库，并冻结原车冲突的后台进程。
+   - 脚本会自动挂载 `/system` 系统分区，将全部 4 个应用写入系统目录，配置好 Android 5.1 所需的 `.so` 核心运行库，并冻结原车冲突的后台进程。
    - 随后屏幕会切到 **「系统设置」** 页面（代表全部静默写入完成！）。
    - 车机会在 5 秒内自动重启。
-7. 拔出 U 盘。车机重启进入应用列表（All Apps），你就会看到全部 3 个应用已就绪：
+7. 拔出 U 盘。车机重启进入应用列表（All Apps），你就会看到全部 4 个应用已就绪：
    - **DiPlay**：苹果手机原生免盒子 CarPlay（定制宝腾咆哮虎标）。
    - **Headunit Reloaded (HUR)**：安卓手机 Android Auto。
    - **Open Hidden Settings**：原生安卓隐藏设置工具（可开启开发者模式、ADB 与应用管理）。
+   - **Amaze File Manager**：全功能文件管理器（浏览车载存储、查看日志、一键复制文件到 U 盘）。
 
 ---
 
@@ -169,6 +167,24 @@ U盘根目录 (FAT32)/
 - 点击此图标，即可一键切回 Proton X50 车机仪表、空调调节、360度倒车影像或原车系统！
 
 ---
+
+### 第六步：导出日志与故障排查（供开发者定位 Debug）
+
+如果遇到无法连接、异常断连或闪退，可以按照以下方法导出完整运行日志发给开发者调试：
+
+1. **方式一：通过 DiPlay 设置生成诊断报告**：
+   - 打开 **DiPlay** ➡️ 点击右上角 **设置（齿轮图标）**。
+   - 点击 **「查看诊断报告 (View Diagnostic Report)」**（或导出报告）。
+   - DiPlay 会自动抓取连接握手日志、系统环境及最近崩溃记录，并输出到车机内置存储的 `Download/DiPlay/` 目录下。
+2. **方式二：使用 Amaze 文件管理器导出日志到 U 盘**：
+   - 将任意 FAT32 U 盘插入车机前排 USB 数据接口。
+   - 打开车机应用列表中的 **Amaze File Manager**。
+   - 进入路径：
+     - `内部存储` ➡️ `Download` ➡️ `DiPlay/`（包含生成的诊断报告）。
+     - 或者进入 `/sdcard/Android/data/com.shihab.diplay/files/logs/`（包含实时的 `diplay.log` 与 `last-crash.txt`）。
+   - 长按日志文件，点击 **「复制 (Copy)」**。
+   - 点击左侧滑出的侧边栏，选中你的 **U 盘 (`udisk1`)**，点击 **「粘贴 (Paste)」**。
+   - 拔出 U 盘插回电脑，把导出的 `.txt` 或 `.log` 文件发给开发者即可快速定位！
 
 ## ❓ 常见问题排查 (FAQ)
 

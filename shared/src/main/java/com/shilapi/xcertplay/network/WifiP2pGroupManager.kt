@@ -745,7 +745,7 @@ class WifiP2pGroupManager(
         }.getOrNull()
         val required = if (Build.VERSION.SDK_INT >= 33) Manifest.permission.NEARBY_WIFI_DEVICES
             else Manifest.permission.ACCESS_FINE_LOCATION
-        val granted = appContext.checkSelfPermission(required) == PackageManager.PERMISSION_GRANTED
+        val granted = androidx.core.content.ContextCompat.checkSelfPermission(appContext, required) == PackageManager.PERMISSION_GRANTED
         val locationAccessMode = if (Build.VERSION.SDK_INT in 29..32) runCatching {
             appContext.getSystemService(AppOpsManager::class.java)?.unsafeCheckOpNoThrow(
                 AppOpsManager.OPSTR_FINE_LOCATION, android.os.Process.myUid(), appContext.packageName)

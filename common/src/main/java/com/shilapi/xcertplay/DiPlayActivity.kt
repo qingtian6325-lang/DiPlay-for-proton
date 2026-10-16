@@ -4909,7 +4909,7 @@ class DiPlayActivity : ComponentActivity(), AppAppearanceOwner {
         BydOutputSettings.wheelSpeedToIphone(this) || BydOutputSettings.videoWhileParked(this)
 
     private fun hasPreciseLocation() =
-        checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+        androidx.core.content.ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
 
     // The cluster screen is described at connection time, so a running session reconnects over
     // its current link. The position choices need no call: getString(R.string.apply_and_reconnect) already does it.

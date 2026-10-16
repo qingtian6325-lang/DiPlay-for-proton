@@ -68,10 +68,11 @@ jobs:
             ### 📦 Download Assets:
             1. **`DiPlay-Proton-X50-USB-Installer.zip`** (⭐ Recommended for Car IHU):
                - **All-in-One Ready-to-Unzip USB Installer Package!**
-               - Bundles 3 essential apps for your Proton X50:
+               - Bundles 4 essential apps for your Proton X50:
                  - 🍎 **DiPlay (Apple CarPlay)**: Native CarPlay with official Proton roaring tiger emblem return icon, Android 5.1.1 downward port.
                  - 🤖 **Headunit Reloaded (Android Auto)**: Full Android Auto support for Android phones.
                  - ⚙️ **Open Hidden Settings**: Access stock Android system settings, Developer Options, and ADB debugging.
+                 - 📁 **Amaze File Manager**: Material Design file explorer to browse car storage, view logs, and export debug files to USB.
                - Includes all required native `.so` runtime libraries pre-extracted for Android 5.1 system app execution.
                - **Usage**: Format a USB drive as FAT32, unzip directly to USB root, insert into the lower console USB data port, and let it auto-install and reboot.
             2. **`DiPlay-for-Proton-Android5.1.apk`**:

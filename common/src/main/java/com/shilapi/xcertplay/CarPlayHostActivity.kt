@@ -830,7 +830,7 @@ class CarPlayHostActivity : ComponentActivity() {
         )
         val reusedBackgroundSession = adoptBackgroundSession()
         microphoneAvailable =
-            checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
+            ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
         microphonePermissionResolved = microphoneAvailable
         if (reusedBackgroundSession) {
             updateDebugOverlays()
@@ -937,7 +937,7 @@ class CarPlayHostActivity : ComponentActivity() {
     private fun requestWiredPermissions(): Boolean {
         if (wiredPermissionsResolved) return false
         val missing = WiredPermissions.required(Build.VERSION.SDK_INT)
-            .filter { checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
+            .filter { ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED }
         if (missing.isEmpty()) return false
         if (!awaitingWiredPermissions) {
             awaitingWiredPermissions = true
@@ -958,7 +958,7 @@ class CarPlayHostActivity : ComponentActivity() {
     }
 
     private fun hasFineLocationPermission(): Boolean =
-        checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) ==
+        ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
             PackageManager.PERMISSION_GRANTED
 
     private fun requestVpnConsent() {
@@ -1032,7 +1032,7 @@ class CarPlayHostActivity : ComponentActivity() {
 
     private fun requestWirelessPermissions() {
         val permissions = requiredWirelessPermissions()
-        if (permissions.all { checkSelfPermission(it) == PackageManager.PERMISSION_GRANTED }) {
+        if (permissions.all { ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED }) {
             wirelessPermissionsReady = true
             updateHotspotStatusBlock()
             maybeStartCarPlay()
@@ -1046,11 +1046,11 @@ class CarPlayHostActivity : ComponentActivity() {
 
     private fun hasRequiredWirelessPermissions(): Boolean =
         requiredWirelessPermissions().all {
-            checkSelfPermission(it) == PackageManager.PERMISSION_GRANTED
+            ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED
         }
 
     private fun missingWirelessPermissions(): List<String> =
-        requiredWirelessPermissions().filter { checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
+        requiredWirelessPermissions().filter { ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED }
 
     /**
      * Once the wireless start permissions were refused, by the driver or silently by Android (#290), the

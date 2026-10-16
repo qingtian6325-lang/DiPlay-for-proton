@@ -20,3 +20,7 @@ fun LocationManager.isLocationEnabledCompat(): Boolean =
 fun <T> android.content.Context.getSystemServiceCompat(serviceClass: Class<T>): T? =
     androidx.core.content.ContextCompat.getSystemService(this, serviceClass)
 
+fun android.content.Context.checkPermissionCompat(permission: String): Int =
+    androidx.core.content.ContextCompat.checkSelfPermission(this, permission)
+
+
