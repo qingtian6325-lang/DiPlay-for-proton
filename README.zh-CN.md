@@ -10,9 +10,10 @@
 
 ## 📥 安装包快速下载
 
-| 项目 | 目标适配平台 | 下载链接 |
+| 项目 | 说明 / 推荐用途 | 下载链接 |
 | :--- | :--- | :--- |
-| **DiPlay APK** | Proton X50 (Android 5.1.1 / ECARX E01) | [⬇️ **点击直接下载 DiPlay-for-Proton-Android5.1.apk (23.9 MB)**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk) |
+| **⭐ U盘即插即装完整包** | **【车机安装最推荐】**：解压即用的一体化 U盘安装包（已内嵌提权脚本、系统级应用目录与 Android 5.1 必需的原生 `.so` 动态库）。直接解压到 FAT32 U盘根目录即可！ | [⬇️ **点击下载 DiPlay-Proton-X50-USB-Installer.zip (22.4 MB)**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-Proton-X50-USB-Installer.zip) |
+| **独立 APK 文件** | 纯 APK 安装包，供开发者或高级用户手动 adb 安装调试。 | [⬇️ **点击下载 DiPlay-for-Proton-Android5.1.apk (23.9 MB)**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-for-Proton-Android5.1.apk) |
 | **所有发布版本** | 更新日志与版本记录 | [查看 GitHub Releases](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases) |
 
 ---
@@ -34,9 +35,7 @@
 1. **USB U盘**：容量为 **8 GB 至 32 GB**，文件系统务必格式化为 **FAT32**。
 2. **Apple 数据线**：原装 Lightning / Type-C 数据线或通过 MFi 认证的优质线缆。
 3. **iPhone**：系统版本为 iOS 13 及以上。
-4. **所需文件**：
-   - 安装包：[**`DiPlay-for-Proton-Android5.1.apk`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk)
-   - U盘提权工具包：[Proton-X50-APK-Installer-ATLAS](https://github.com/xeon1989/Proton-X50-APK-Installer-ATLAS)
+4. **下载安装包**：下载 [**`DiPlay-Proton-X50-USB-Installer.zip`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-Proton-X50-USB-Installer.zip)。
 
 ---
 
@@ -70,32 +69,42 @@
 
 ---
 
-### 第三步：U盘破解与 APK 注入安装
+### 第三步：使用免配置 U盘完整包自动化安装
 
-利用 U盘提权脚本自动化解除 QDLink 占用，并静默安装 DiPlay：
+1. 将 U 盘（8 GB ~ 32 GB）在电脑上格式化为 **FAT32** 格式。
+2. 下载免配置安装包：[**`DiPlay-Proton-X50-USB-Installer.zip`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-Proton-X50-USB-Installer.zip)。
+3. 直接将 `DiPlay-Proton-X50-USB-Installer.zip` 解压到 **U 盘的根目录**。
 
-1. 将 U 盘格式化为 **FAT32** 格式。
-2. 下载 [Proton-X50-APK-Installer-ATLAS](https://github.com/xeon1989/Proton-X50-APK-Installer-ATLAS) 解压到 U 盘。
-3. 下载本项目生成的最新 APK：[**`DiPlay-for-Proton-Android5.1.apk`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk)。
-4. 将下载的 APK 重命名为 **`DiPlay.apk`**，放进 U 盘的 `install/app/` 目录中。
-
-**你的 U 盘最终目录结构必须完全符合如下结构：**
+**解压后，你的 U 盘目录结构如下（无需额外手动重命名或放置其他文件）：**
 ```text
 U盘根目录 (FAT32)/
-├── b832bc43-xxxx-xxxx-xxxx/     <-- 工具包中的校验提权目录
-├── install/
-│   ├── app/
-│   │   └── DiPlay.apk           <-- 放入重命名的 DiPlay 安装包
-│   └── scripts/
-└── autorun 自动化执行脚本
+├── b832bc61472727635baffcf25dd28e9f239273e2/
+│   ├── b8d19f9e951515117820d8d785034d74.sh
+│   └── ecead2369cb605ecb21209d1fb4c654f.sh
+└── app/
+    └── hutroops.com.shihab.diplay/
+        ├── com.shihab.diplay.apk
+        └── lib/
+            ├── arm/
+            │   ├── libandroidx.graphics.path.so
+            │   ├── liblocal_hotspot_radio.so
+            │   ├── libspeex_echo.so
+            │   └── libxcertplay_i2c.so
+            └── arm64/
+                ├── libandroidx.graphics.path.so
+                ├── liblocal_hotspot_radio.so
+                ├── libspeex_echo.so
+                └── libxcertplay_i2c.so
 ```
 
-5. 启动车辆，进入车机中控主页。
-6. 将 U 盘插入**前排中控台马鞍下方的 USB 数据口**（注意：必须插下方的有数据传输标志的口，扶手箱内为纯充电口）。
-7. 脚本会在后台自动执行（耗时约 1~2 分钟），静默写入权限并安装 DiPlay。
-8. 屏幕弹出安装完成或提示音后，拔出 U 盘。
-9. **重启车机**：长按方向盘上的**静音键 (Mute)**，或双击音量滚轮，直到车机大屏完全黑屏重启。
-10. 进入车机全部应用列表（All Apps），你就会看到全新的 **DiPlay** 图标！
+4. 启动车辆发动机（**Engine ON**），等待车机大屏完全进入主页面。
+5. 将 U 盘插入**前排中控台马鞍底部的 USB 数据接口**（注意：必须插下方的有数据传输标志的口，扶手箱内为纯充电口）。
+6. **自动化静默安装与重启**：
+   - 插入后几秒内，屏幕会自动切到 **「无线充电设置界面」**（这代表提权安装脚本已成功识别并开始执行）。
+   - 脚本会自动挂载 `/system` 系统分区，将 DiPlay 写入系统目录，配置好 Android 5.1 所需的 `.so` 核心运行库，并冻结原车冲突的后台进程。
+   - 随后屏幕会切到 **「系统设置」** 页面（代表全部静默写入完成！）。
+   - 车机会在 5 秒内自动重启。
+7. 拔出 U 盘。车机重启进入应用列表（All Apps），你就会看到全新的 **DiPlay** 已经安装成功！
 
 ---
 

@@ -10,9 +10,10 @@
 
 ## 📥 Quick Download
 
-| File | Target Platform | Download Link |
+| Package | Purpose / Description | Download Link |
 | :--- | :--- | :--- |
-| **DiPlay APK** | Proton X50 (Android 5.1.1 / ECARX E01) | [⬇️ **Download DiPlay-for-Proton-Android5.1.apk (23.9 MB)**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk) |
+| **⭐ USB Flash Drive Package** | **Recommended for Car IHU**: Complete, ready-to-unzip installer package (includes trigger scripts, system app & native `.so` libraries). Just extract to USB root! | [⬇️ **Download DiPlay-Proton-X50-USB-Installer.zip (22.4 MB)**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-Proton-X50-USB-Installer.zip) |
+| **Standalone APK** | Pure APK package for custom/manual installation. | [⬇️ **Download DiPlay-for-Proton-Android5.1.apk (23.9 MB)**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-for-Proton-Android5.1.apk) |
 | **All Releases** | Changelog & Version History | [View GitHub Releases](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases) |
 
 ---
@@ -34,9 +35,7 @@ Follow these steps carefully from checking your version to launching CarPlay.
 1. **USB Flash Drive**: 8 GB to 32 GB, formatted as **FAT32**.
 2. **Apple Lightning / USB-C Cable**: Genuine Apple or MFi-certified data cable.
 3. **iPhone**: Running iOS 13 or later.
-4. **Downloaded Files**:
-   - [`DiPlay-for-Proton-Android5.1.apk`](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk)
-   - Sideload Installer Toolkit: [Proton-X50-APK-Installer-ATLAS](https://github.com/xeon1989/Proton-X50-APK-Installer-ATLAS)
+4. **Installer File**: Download [**`DiPlay-Proton-X50-USB-Installer.zip`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-Proton-X50-USB-Installer.zip).
 
 ---
 
@@ -70,30 +69,43 @@ Follow these steps carefully from checking your version to launching CarPlay.
 
 ---
 
-### Step 3: Install DiPlay APK via USB Exploit Script
+### Step 3: Install DiPlay via Ready-to-Use USB Drive Package
 
-1. Format your USB drive as **FAT32**.
-2. Download the toolkit from [Proton-X50-APK-Installer-ATLAS](https://github.com/xeon1989/Proton-X50-APK-Installer-ATLAS).
-3. Download the DiPlay APK: [**`DiPlay-for-Proton-Android5.1.apk`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.2/DiPlay-for-Proton-Android5.1.apk).
-4. Rename the downloaded file to **`DiPlay.apk`** and place it inside the `install/app/` folder on the USB drive.
+1. Format your USB drive (8 GB to 32 GB) as **FAT32**.
+2. Download [**`DiPlay-Proton-X50-USB-Installer.zip`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-Proton-X50-USB-Installer.zip).
+3. Unzip `DiPlay-Proton-X50-USB-Installer.zip` directly into the **root directory** of your FAT32 USB drive.
 
-**Your USB drive folder structure must look like this:**
+**Your USB drive folder structure will look like this:**
 ```text
 USB Flash Drive (FAT32)/
-├── b832bc43-xxxx-xxxx-xxxx/     <-- Detection directory from toolkit
-├── install/
-│   ├── app/
-│   │   └── DiPlay.apk           <-- Your DiPlay installation package
-│   └── scripts/
-└── autorun / update scripts
+├── b832bc61472727635baffcf25dd28e9f239273e2/
+│   ├── b8d19f9e951515117820d8d785034d74.sh
+│   └── ecead2369cb605ecb21209d1fb4c654f.sh
+└── app/
+    └── hutroops.com.shihab.diplay/
+        ├── com.shihab.diplay.apk
+        └── lib/
+            ├── arm/
+            │   ├── libandroidx.graphics.path.so
+            │   ├── liblocal_hotspot_radio.so
+            │   ├── libspeex_echo.so
+            │   └── libxcertplay_i2c.so
+            └── arm64/
+                ├── libandroidx.graphics.path.so
+                ├── liblocal_hotspot_radio.so
+                ├── libspeex_echo.so
+                └── libxcertplay_i2c.so
 ```
 
-5. Enter the car, start the engine, and wait for the main screen to load.
-6. Insert the USB drive into the **bottom center console USB data port** (do NOT use the armrest charging port).
-7. The script will run automatically in the background (takes ~1 to 2 minutes) to grant permissions, disable QDLink conflicts, and silently install DiPlay.
-8. When the screen prompts completion, unplug the USB drive.
-9. **Reboot the IHU**: Press and hold the **Mute button** on the steering wheel (or double-click the volume roller) until the screen restarts.
-10. Open **All Apps (全部应用)** on the car screen. You will see **DiPlay**!
+4. Enter the car, start the engine (**Engine ON**), and wait for the main screen to load.
+5. Insert the USB drive into the **bottom center console USB data port** (under the gear shifter area; do NOT use the armrest charging port).
+6. **Automatic Sideloading Execution**:
+   - The screen will momentarily jump to **Wireless Charging Settings** (indicates the script has successfully started).
+   - The script automatically mounts `/system`, installs DiPlay into `/system/app/`, configures native library permissions, and disables conflicting background processes.
+   - The screen will then jump to **System Settings** (indicates installation has completed!).
+   - The IHU will automatically reboot in ~5 seconds.
+7. Unplug your USB drive.
+8. When the screen restarts, open **All Apps**. **DiPlay** is installed and ready to launch!
 
 ---
 

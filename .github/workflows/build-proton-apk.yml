@@ -40,29 +40,41 @@ jobs:
       - name: Build Debug APK
         run: ./gradlew :mobile:assembleDebug --stacktrace
 
-      - name: Prepare APK Output
+      - name: Prepare APK and USB Installer Package
         run: |
           mkdir -p dist
           cp mobile/build/outputs/apk/debug/mobile-debug.apk dist/DiPlay-for-Proton-Android5.1.apk
+          python3 scripts/package_usb_installer.py
 
-      - name: Upload APK Artifact
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: DiPlay-for-Proton-Android5.1
-          path: dist/DiPlay-for-Proton-Android5.1.apk
+          name: DiPlay-Proton-X50-Files
+          path: |
+            dist/DiPlay-for-Proton-Android5.1.apk
+            dist/DiPlay-Proton-X50-USB-Installer.zip
 
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/DiPlay-for-Proton-Android5.1.apk
+          files: |
+            dist/DiPlay-for-Proton-Android5.1.apk
+            dist/DiPlay-Proton-X50-USB-Installer.zip
           name: ${{ github.ref_name }}
           body: |
-            ## DiPlay for Proton X50 (Android 5.1 / ECARX E01)
+            ## 🚗 DiPlay for Proton X50 (Android 5.1 / ECARX E01)
+
+            ### 📦 Download Assets:
+            1. **`DiPlay-Proton-X50-USB-Installer.zip`** (⭐ Recommended for car installation):
+               - Complete, ready-to-unzip USB flash drive installer package!
+               - Format a USB drive as FAT32, unzip this file directly to the USB drive root, plug it into the lower console USB data port, and wait for automatic installation and reboot.
+            2. **`DiPlay-for-Proton-Android5.1.apk`**:
+               - Standalone APK file.
             
             - **Target Vehicle**: Proton X50 (Standard, Executive, Premium, Flagship)
             - **System**: Android 5.1.1 (API 22) / ECARX E01 SoC
             - **CarPlay OEM Button**: Branded as **Proton** with the official roaring tiger logo.
-            - **Installation Guide**: See [PROTON_X50_GUIDE.md](PROTON_X50_GUIDE.md) (Chinese) or [PROTON_X50_GUIDE.en.md](PROTON_X50_GUIDE.en.md) (English).
+            - **Installation Guide**: See [README.md](README.md) (English) or [README.zh-CN.md](README.zh-CN.md) (Chinese).
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

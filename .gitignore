@@ -8,6 +8,7 @@
 .kotlin/
 .android-sdk/
 build/
+dist/
 local.properties
 
 # Native build output
