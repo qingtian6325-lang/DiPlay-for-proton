@@ -63,18 +63,22 @@ jobs:
             dist/DiPlay-Proton-X50-USB-Installer.zip
           name: ${{ github.ref_name }}
           body: |
-            ## 🚗 DiPlay for Proton X50 (Android 5.1 / ECARX E01)
+            ## 🚗 DiPlay All-in-One Suite for Proton X50 (Android 5.1 / ECARX E01)
 
             ### 📦 Download Assets:
-            1. **`DiPlay-Proton-X50-USB-Installer.zip`** (⭐ Recommended for car installation):
-               - Complete, ready-to-unzip USB flash drive installer package!
-               - Format a USB drive as FAT32, unzip this file directly to the USB drive root, plug it into the lower console USB data port, and wait for automatic installation and reboot.
+            1. **`DiPlay-Proton-X50-USB-Installer.zip`** (⭐ Recommended for Car IHU):
+               - **All-in-One Ready-to-Unzip USB Installer Package!**
+               - Bundles 3 essential apps for your Proton X50:
+                 - 🍎 **DiPlay (Apple CarPlay)**: Native CarPlay with official Proton roaring tiger emblem return icon, Android 5.1.1 downward port.
+                 - 🤖 **Headunit Reloaded (Android Auto)**: Full Android Auto support for Android phones.
+                 - ⚙️ **Open Hidden Settings**: Access stock Android system settings, Developer Options, and ADB debugging.
+               - Includes all required native `.so` runtime libraries pre-extracted for Android 5.1 system app execution.
+               - **Usage**: Format a USB drive as FAT32, unzip directly to USB root, insert into the lower console USB data port, and let it auto-install and reboot.
             2. **`DiPlay-for-Proton-Android5.1.apk`**:
-               - Standalone APK file.
+               - Standalone APK file for DiPlay.
             
             - **Target Vehicle**: Proton X50 (Standard, Executive, Premium, Flagship)
-            - **System**: Android 5.1.1 (API 22) / ECARX E01 SoC
-            - **CarPlay OEM Button**: Branded as **Proton** with the official roaring tiger logo.
+            - **System**: Android 5.1.1 (API 22) / ECARX E01 SoC / ATLAS OS
             - **Installation Guide**: See [README.md](README.md) (English) or [README.zh-CN.md](README.zh-CN.md) (Chinese).
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

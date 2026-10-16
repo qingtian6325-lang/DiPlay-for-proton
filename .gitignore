@@ -39,4 +39,5 @@ release-signing.properties
 *.pem
 *.key
 *.apk
+!installer/**/*.apk
 *.aab

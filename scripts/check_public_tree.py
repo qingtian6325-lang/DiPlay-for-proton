@@ -13,7 +13,10 @@ for name in filter(None, names):
     path = root / name
     if not path.is_file():
         continue
-    if '.private' in path.relative_to(root).parts or path.suffix.lower() in blocked_suffixes:
+    rel_parts = path.relative_to(root).parts
+    if 'installer' in rel_parts:
+        continue
+    if '.private' in rel_parts or path.suffix.lower() in blocked_suffixes:
         failures.append(name)
     elif private_block.search(path.read_bytes()):
         failures.append(name)

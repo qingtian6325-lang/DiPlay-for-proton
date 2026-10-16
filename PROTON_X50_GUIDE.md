@@ -48,8 +48,8 @@
 4. **Jetpack Compose 与 Manifest Merger 依赖规避**：
    - 在 `AndroidManifest.xml` 中配置 `tools:overrideLibrary`，安全忽略 Compose Material、Animation、Media3 与 WorkManager 等库的 API 23 强制限制。
 5. **品牌定制与视觉重塑**：
-   - 应用包名 Label 由 `DiPlay` 改为 **`Proton`**。
-   - 图标重构为 Proton 咆哮虎头立体金属徽标，完美融入车机原生应用列表。
+   - 车机系统应用名称保持为 **`DiPlay`**，进入 Apple CarPlay 内部后的返回原车按钮定制为 **`Proton`**。
+   - 图标替换为 Proton 官方咆哮虎头立体金属徽标（`ic_car_home.png` 及 `placeholder_icon.png`），在 CarPlay 中点击 Proton 图标即可一秒无缝切回原车中控。
 
 ---
 

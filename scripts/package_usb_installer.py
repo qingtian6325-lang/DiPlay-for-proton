@@ -35,6 +35,16 @@ def main():
     os.makedirs(arm_dir, exist_ok=True)
     os.makedirs(arm64_dir, exist_ok=True)
 
+    # Copy companion apps (Android Auto HUR, Open Hidden Settings) if present
+    extra_apps_dir = os.path.join(root_dir, 'installer', 'proton-x50', 'app')
+    if os.path.isdir(extra_apps_dir):
+        for folder in os.listdir(extra_apps_dir):
+            src_f = os.path.join(extra_apps_dir, folder)
+            dest_f = os.path.join(temp_dir, 'app', folder)
+            if os.path.isdir(src_f) and not os.path.exists(dest_f):
+                shutil.copytree(src_f, dest_f)
+
+
     # Copy APK with the required system name
     shutil.copy2(apk_path, os.path.join(app_target, 'com.shihab.diplay.apk'))
 

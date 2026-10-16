@@ -12,14 +12,15 @@
 
 | Package | Purpose / Description | Download Link |
 | :--- | :--- | :--- |
-| **⭐ USB Flash Drive Package** | **Recommended for Car IHU**: Complete, ready-to-unzip installer package (includes trigger scripts, system app & native `.so` libraries). Just extract to USB root! | [⬇️ **Download DiPlay-Proton-X50-USB-Installer.zip (22.4 MB)**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-Proton-X50-USB-Installer.zip) |
-| **Standalone APK** | Pure APK package for custom/manual installation. | [⬇️ **Download DiPlay-for-Proton-Android5.1.apk (23.9 MB)**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-for-Proton-Android5.1.apk) |
+| **⭐ USB Flash Drive All-in-One Package** | **Recommended for Car IHU**: Complete, ready-to-unzip installer package! Bundles **DiPlay (CarPlay)**, **Headunit Reloaded (Android Auto)**, and **Open Hidden Settings**, along with trigger scripts & native `.so` libraries. Just extract to USB root! | [⬇️ **Download DiPlay-Proton-X50-USB-Installer.zip**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/latest/download/DiPlay-Proton-X50-USB-Installer.zip) |
+| **Standalone APK** | Pure APK package for custom/manual installation. | [⬇️ **Download DiPlay-for-Proton-Android5.1.apk**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/latest/download/DiPlay-for-Proton-Android5.1.apk) |
 | **All Releases** | Changelog & Version History | [View GitHub Releases](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases) |
 
 ---
 
 ## 🌟 Key Features for Proton X50
 
+- **All-in-One Connectivity Suite**: Installs **Apple CarPlay (DiPlay)**, **Android Auto (Headunit Reloaded)**, and **Open Hidden Settings** in one single USB plug-and-play step.
 - **True Native CarPlay**: Runs directly on the car's built-in ECARX E01 processor without third-party USB dongles.
 - **Android 5.1.1 (API 22) Downward Port**: Fully patched and recompiled with NDK C++ native binaries (`armeabi-v7a`, `arm64-v8a`) specifically for Proton X50.
 - **Proton Vehicle Branding**: Inside Apple CarPlay, the OEM return tile is branded as **Proton** with the official **Proton roaring tiger emblem**. Tapping it returns directly to the Proton X50 car dashboard.
@@ -34,8 +35,8 @@ Follow these steps carefully from checking your version to launching CarPlay.
 ### 📋 Prerequisites (What you need)
 1. **USB Flash Drive**: 8 GB to 32 GB, formatted as **FAT32**.
 2. **Apple Lightning / USB-C Cable**: Genuine Apple or MFi-certified data cable.
-3. **iPhone**: Running iOS 13 or later.
-4. **Installer File**: Download [**`DiPlay-Proton-X50-USB-Installer.zip`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-Proton-X50-USB-Installer.zip).
+3. **iPhone** (for CarPlay) or **Android Phone** (for Android Auto).
+4. **Installer File**: Download [**`DiPlay-Proton-X50-USB-Installer.zip`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/latest/download/DiPlay-Proton-X50-USB-Installer.zip).
 
 ---
 
@@ -72,7 +73,7 @@ Follow these steps carefully from checking your version to launching CarPlay.
 ### Step 3: Install DiPlay via Ready-to-Use USB Drive Package
 
 1. Format your USB drive (8 GB to 32 GB) as **FAT32**.
-2. Download [**`DiPlay-Proton-X50-USB-Installer.zip`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/download/v0.2.20-proton.3/DiPlay-Proton-X50-USB-Installer.zip).
+2. Download [**`DiPlay-Proton-X50-USB-Installer.zip`**](https://github.com/qingtian6325-lang/DiPlay-for-proton/releases/latest/download/DiPlay-Proton-X50-USB-Installer.zip).
 3. Unzip `DiPlay-Proton-X50-USB-Installer.zip` directly into the **root directory** of your FAT32 USB drive.
 
 **Your USB drive folder structure will look like this:**
@@ -82,30 +83,41 @@ USB Flash Drive (FAT32)/
 │   ├── b8d19f9e951515117820d8d785034d74.sh
 │   └── ecead2369cb605ecb21209d1fb4c654f.sh
 └── app/
-    └── hutroops.com.shihab.diplay/
-        ├── com.shihab.diplay.apk
-        └── lib/
-            ├── arm/
-            │   ├── libandroidx.graphics.path.so
-            │   ├── liblocal_hotspot_radio.so
-            │   ├── libspeex_echo.so
-            │   └── libxcertplay_i2c.so
-            └── arm64/
-                ├── libandroidx.graphics.path.so
-                ├── liblocal_hotspot_radio.so
-                ├── libspeex_echo.so
-                └── libxcertplay_i2c.so
+    ├── hutroops.com.shihab.diplay/          # 🍎 Apple CarPlay (DiPlay for Proton)
+    │   ├── com.shihab.diplay.apk
+    │   └── lib/
+    │       ├── arm/
+    │       │   ├── libandroidx.graphics.path.so
+    │       │   ├── liblocal_hotspot_radio.so
+    │       │   ├── libspeex_echo.so
+    │       │   └── libxcertplay_i2c.so
+    │       └── arm64/
+    │           ├── libandroidx.graphics.path.so
+    │           ├── liblocal_hotspot_radio.so
+    │           ├── libspeex_echo.so
+    │           └── libxcertplay_i2c.so
+    ├── hutroops.gb.xxy.hr/                  # 🤖 Android Auto (Headunit Reloaded / HUR)
+    │   ├── gb.xxy.hr.apk
+    │   └── lib/
+    │       ├── arm/
+    │       └── arm64/
+    └── hutroops.dxidev.openhiddensettings/  # ⚙️ Open Hidden Settings (Android Settings & ADB)
+        ├── dxidev.openhiddensettings.apk
+        └── lib/arm/
 ```
 
 4. Enter the car, start the engine (**Engine ON**), and wait for the main screen to load.
 5. Insert the USB drive into the **bottom center console USB data port** (under the gear shifter area; do NOT use the armrest charging port).
 6. **Automatic Sideloading Execution**:
    - The screen will momentarily jump to **Wireless Charging Settings** (indicates the script has successfully started).
-   - The script automatically mounts `/system`, installs DiPlay into `/system/app/`, configures native library permissions, and disables conflicting background processes.
+   - The script automatically mounts `/system`, installs all 3 apps into `/system/app/`, configures native library permissions, and disables conflicting background processes.
    - The screen will then jump to **System Settings** (indicates installation has completed!).
    - The IHU will automatically reboot in ~5 seconds.
 7. Unplug your USB drive.
-8. When the screen restarts, open **All Apps**. **DiPlay** is installed and ready to launch!
+8. When the screen restarts, open **All Apps**. You will see:
+   - **DiPlay**: Native Apple CarPlay with Proton tiger emblem.
+   - **Headunit Reloaded (HUR)**: Native Android Auto.
+   - **Open Hidden Settings**: Stock Android settings and developer options.
 
 ---
 
@@ -183,10 +195,12 @@ This repository includes a fully automated **GitHub Actions CI/CD** workflow. Wh
 
 ## 🙏 Acknowledgements & Credits
 
-Special thanks to the following open-source projects and developers who made native CarPlay on the Proton X50 possible:
+Special thanks to the following open-source projects and developers:
 
 - **[DiPlay](https://github.com/shihabal3amri/DiPlay)** by [@shihabal3amri](https://github.com/shihabal3amri) — Independent CarPlay receiver implementation for Android head units.
 - **[xcertplay](https://github.com/Frank-Zsy/xcertplay)** by [@Frank-Zsy](https://github.com/Frank-Zsy) — Core CarPlay protocol and AirPlay receiver engine.
+- **[Headunit Reloaded (HUR)](https://forum.xda-developers.com/t/android-4-1-headunit-reloaded-for-android-auto-touch-wifi-mic-hardware-keys.3432348/)** by Emil Borconi — Android Auto receiver engine for Android head units.
+- **[Open Hidden Settings](https://github.com/dxidev)** by [@dxidev](https://github.com/dxidev) — Hidden Android settings shortcut utility.
 - **[Proton-X50-APK-Installer-ATLAS](https://github.com/xeon1989/Proton-X50-APK-Installer-ATLAS)** by [@xeon1989](https://github.com/xeon1989) — Sideloading exploit script and installer for Proton X50 ATLAS OS.
 - **[Proton-X50-IHU-Upgrade-Downgrade](https://github.com/xeon1989/Proton-X50-IHU-Upgrade-Downgrade)** by [@xeon1989](https://github.com/xeon1989) — IHU firmware upgrade & downgrade toolkit for Proton X50.
 - **[proton_firmware](https://github.com/xeon1989/proton_firmware)** by [@xeon1989](https://github.com/xeon1989) — Repository of Proton X50 IHU firmware images.
